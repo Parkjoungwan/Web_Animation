@@ -8,7 +8,7 @@ class App {
         this.ctx = this.canvas.getContext('2d');
         document.body.appendChild(this.canvas);
 
-	    this.wavegroup = new WaveGroup();
+	this.wavegroup = new WaveGroup();
 
         window.addEventListener('resize', this.resize.bind(this), false);
         this.resize();
@@ -24,15 +24,13 @@ class App {
         this.canvas.height = this.stageHeight * 2;
         this.ctx.scale(2, 2);
 
-	    this.wavegroup.resize(this.stageWidth, this.stageHeight);
+	this.wavegroup.resize(this.stageWidth, this.stageHeight);
     }
 
     animate(t) {
-	    this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
-
-	    this.wavegroup.draw(this.ctx);
-
-        window.requestAnimationFrame(this.animate.bind(this));
+	this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
+	this.wavegroup.draw(this.ctx);
+	window.requestAnimationFrame(this.animate.bind(this));
     }
 }
 

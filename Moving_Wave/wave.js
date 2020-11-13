@@ -21,7 +21,7 @@ export class Wave
 		this.centerX = stageWidth / 2;
 		this.centerY = stageHeight / 2;
 
-		this.pointGap = this.stageWidht / (this.totalPoints - 1);
+		this.pointGap = this.stageWidth / (this.totalPoints - 1);
 
 		this.init();
 	}
@@ -30,9 +30,9 @@ export class Wave
 	{
 		this.points = [];
 
-		for (let i = 0 ; i < this.totalPoints; i++)
+		for (let i = 0; i < this.totalPoints; i++)
 		{
-			const point = new Point(this.index + 1, this.pointGap * i, this.centerY);
+			const point = new Point(this.index + i, this.pointGap * i, this.centerY);
 			this.points[i] = point;
 		}
 	}
@@ -45,9 +45,10 @@ export class Wave
 		let prevX = this.points[0].x;
 		let prevY = this.points[0].y;
 
+
 		ctx.moveTo(prevX, prevY);
 
-		for(let i = 0; i < this.totalPoints; i++)
+		for(let i = 1; i < this.totalPoints; i++)
 		{
 			if (i < this.totalPoints - 1)
 			{
