@@ -24,13 +24,13 @@ class App {
         this.canvas.height = this.stageHeight * 2;
         this.ctx.scale(2, 2);
 
-	this.wavegroup.resize(this.stageWidth, this.stageHeight);
+	    this.wavegroup.resize(this.stageWidth, this.stageHeight);
     }
 
     animate(t) {
-	this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
+	    this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
 
-	this.wavegroup.draw(this.ctx);
+	    this.wavegroup.draw(this.ctx);
 
         window.requestAnimationFrame(this.animate.bind(this));
     }

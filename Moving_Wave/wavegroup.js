@@ -37,6 +37,5 @@ export class WaveGroup
 			const wave = this.waves[i];
 			wave.draw(ctx);
 		}
-
 	}
 }
