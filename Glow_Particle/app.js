@@ -1,3 +1,8 @@
+import 
+{
+	GlowParticle
+} from './glowparticle.js';
+
 const COLORS = [
 	{r: 45, g: 74, b: 277},
 	{r: 250, g: 255, b: 89},
@@ -12,7 +17,7 @@ class App
 	{
 		this.canvas = document.createElement('canvas');
 		document.body.appendChild(this.canvas);
-		this.ctx = this.canvase.getContext('2d');
+		this.ctx = this.canvas.getContext('2d');
 
 		this.pixelRatio = (window.devicePixelRatio > 1) ? 2 : 1;
 
@@ -46,13 +51,31 @@ class App
 
 		for (let i = 0; i < this.totalParticles; i++)
 		{
-			
+			const item = new GlowParticle(
+				Math.random() * this.stageWidth,
+				Math.random() * this.stageHeight,
+				Math.random() * (this.maxRadius - this.minRadius) + this.minRadius,
+				COLORS[curColor]
+			);
+
+			if (++curColor > COLORS.length)
+			{
+				curColor = 0;
+			}
+
+			this.particle[i] = item;
 		}
 	}
 
 	animate()
 	{
-		
+		window.requestAnimationFrame(this.animate.bind(this));
+		this.ctx.clearRect(0, 0, stageWidth, stageHeight);
+		for (let i = 0; i < this.totalParticles; i++)
+		{
+			const item = particle[i];
+			item.animate(this.ctx, this.stageWidth, this.stageHeight);
+		}
 	}
 }
 
