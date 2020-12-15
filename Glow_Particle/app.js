@@ -4,11 +4,11 @@ import
 } from './glowparticle.js';
 
 const COLORS = [
-	{r: 45, g: 74, b: 277},
-	{r: 250, g: 255, b: 89},
-	{r: 255, g: 104, b: 248},
-	{r: 44, g: 209, b: 252},
-	{r: 54, g: 233, b: 84}
+	{r: 250, g: 201, b: 40},
+	{r: 227, g: 185, b: 48},
+	{r: 240, g: 193, b: 38},
+	{r: 191, g: 185, b: 8},
+	{r: 201, g: 176, b: 8}
 ];
 
 class App
@@ -21,10 +21,10 @@ class App
 
 		this.pixelRatio = (window.devicePixelRatio > 1) ? 2 : 1;
 
-		this.totalParticles = 15;
+		this.totalParticles = 10;
 		this.particles = [];
-		this.maxRadius = 900;
-		this.minRadius = 400;
+		this.maxRadius = 400;
+		this.minRadius = 100;
 		
 		window.addEventListener('resize', this.resize.bind(this), false);
 		this.resize();
