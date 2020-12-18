@@ -12,7 +12,7 @@ class App {
 		this.curItem = null;
 
 		this.items = [];
-		this.total = 1;
+		this.total = 6;
 		for (let i = 0; i < this.total; i++)
 		{
 			this.items[i] = new Dialog();
@@ -26,7 +26,13 @@ class App {
 		document.addEventListener('pointerdown', this.onDown.bind(this), false);
 		document.addEventListener('pointermove', this.onMove.bind(this), false);
 		document.addEventListener('pointerup', this.onUp.bind(this), false);
+		document.addEventListener('dblclick', this.test.bind(this), false);
 	}
+
+	test() {
+		window.location.href = "./test.html";
+	}
+
 	resize() {
 		this.stageWidth = document.body.clientWidth;
 		this.stageHeight = document.body.clientHeight;
